@@ -29,12 +29,10 @@
           });
         }
       }, 100);
-      
-      document.removeEventListener('click', hideTapOverlay);
-      document.removeEventListener('touchstart', hideTapOverlay);
     };
-    document.addEventListener('click', hideTapOverlay);
-    document.addEventListener('touchstart', hideTapOverlay);
+    
+    // Only dismiss when clicking the overlay itself
+    tapOverlay.addEventListener('click', hideTapOverlay);
   }
 
   // ---------- VINYL SPIN (synced to music) ----------

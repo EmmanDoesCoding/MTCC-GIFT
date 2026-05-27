@@ -1082,6 +1082,7 @@ body::after {
 .tap-to-start-content {
   text-align: center;
   color: var(--text-primary);
+  pointer-events: auto;  /* Make content clickable */
 }
 
 .tap-to-start-content h2 {
