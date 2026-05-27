@@ -14,6 +14,18 @@
   const modal      = document.getElementById('message-modal');
   const closeBtn   = document.getElementById('card-close');
 
+  // Tap to start overlay
+  const tapOverlay = document.getElementById('tap-to-start');
+  if (tapOverlay) {
+    const hideTapOverlay = () => {
+      tapOverlay.classList.add('hidden');
+      document.removeEventListener('click', hideTapOverlay);
+      document.removeEventListener('touchstart', hideTapOverlay);
+    };
+    document.addEventListener('click', hideTapOverlay);
+    document.addEventListener('touchstart', hideTapOverlay);
+  }
+
   // ---------- VINYL SPIN (synced to music) ----------
   // The vinyl animation runs continuously in the background.
   // We only pause/play it based on music state, so it never "snaps" back.
