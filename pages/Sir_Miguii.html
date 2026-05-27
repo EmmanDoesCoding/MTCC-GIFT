@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sir Miguii</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <!-- BACKGROUND MUSIC — change src to this person's mp3 -->
+  <audio id="bg-music" src="../assets/music/Sir_Miguii.mp3" preload="auto"></audio>
+
+  <!-- Floating music toggle -->
+  <button class="music-control" id="music-toggle" aria-label="Play music"></button>
+
+  <main class="person-wrap">
+    <div class="person-card">
+
+      <!-- NAME -->
+      <h1 class="person-name">Sir Miguii</h1>
+      <p class="person-tagline">A note, just for you</p>
+
+      <!-- PORTRAIT FLIP CARD -->
+      <div class="portrait-frame" id="portrait-frame">
+        <div class="portrait-flipper">
+          <div class="portrait-front">
+            <img src="../assets/images/Sir_Miguii.jpg" alt="Sir Miguii">
+          </div>
+          <div class="portrait-back" id="vinyl-back">
+            <div class="vinyl-label">
+              <img src="../assets/images/Sir_Miguii_album.jpg" alt="Album art">
+            </div>
+            <div class="vinyl-hole"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="portrait-hint">tap to flip</p>
+
+      <!-- SPOTIFY-STYLE SONG CARD -->
+      <div class="song-card">
+        <div class="song-card-art">
+          <img src="../assets/images/Sir_Miguii_album.jpg" alt="Album art">
+        </div>
+        <div class="song-card-info">
+          <span class="song-card-title">High Hopes</span>
+          <span class="song-card-artist">Panic! At The Disco</span>
+        </div>
+        <div class="song-card-bars" id="song-bars">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <!-- Open message button -->
+      <button class="reveal-btn" id="reveal-btn">
+        <span class="icon">✦</span> Open Your Message
+      </button>
+
+    </div>
+  </main>
+
+  <!-- MESSAGE CARD MODAL -->
+  <div class="modal-overlay" id="message-modal">
+    <article class="message-card">
+
+      <button class="card-close" id="card-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <header class="card-header">
+        <div class="card-eyebrow">A Letter</div>
+        <h2 class="card-title">For Sir Miguii</h2>
+      </header>
+
+      <div class="card-divider"></div>
+
+      <!-- MESSAGE BODY -->
+      <div class="card-body">Dear Sir Miguii,
+
+As my OJT journey comes to a close this 4th of June 2026, I want to take this opportunity to sincerely express my gratitude for the guidance, patience, and support you have given us throughout this experience. Completing this training would have been very different and much more difficult without your presence and supervision.
+
+Thank you for sharing your knowledge with us and for always taking the time to correct our mistakes and help us improve. Your guidance did not only help us complete our tasks, but also helped us understand the value of discipline, responsibility, and professionalism in a real working environment. I also appreciate how you managed to balance expectations while still being approachable and understanding, which made learning under your supervision a meaningful and comfortable experience. 
+
+That is why I dedicated the song “High Hopes” by Panic! At The Disco to you, because this perfectly reflects how you made us feel throughout our entire OJT experience. You are someone who symbolizes encouragement, ambition, and having high hopes for the people around you. I also associated this song with you because of your recent achievement in successfully passing your master’s thesis defense, which is truly a reflection of your hard work, perseverance, and dedication. The song felt very fitting because it represents striving for greater heights, something that I genuinely see in you. Thank you for never giving up on us and remind us always that we can do whatever it is that is on our way.
+
+Beyond the technical lessons, I also learned from the way you carry yourself in your work. Your dedication, leadership, and ability to handle responsibilities have become something I genuinely look up to. It showed me what it truly means to be committed to your profession and to lead with both competence and integrity.
+
+I also want to acknowledge the impact you have had on our growth as individuals. This OJT did not only teach us skills, but also helped shape our mindset and work ethic, and a big part of that is because of your guidance.
+
+As we move forward into the next chapter of our lives, I hope we carry with us everything we have learned under your supervision. I will always be grateful for the time, effort, and trust you gave us. Please know that your guidance made a lasting difference in my OJT experience.
+
+Thank you very much, Sir, and I sincerely wish you continued success and all the best in everything you do.
+
+See you around!
+      </div>
+
+      <div class="card-signature">— Emman D.</div>
+
+    </article>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Russ</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <!-- BACKGROUND MUSIC -->
+  <audio id="bg-music" src="../assets/music/Russ.mp3" preload="auto"></audio>
+
+  <!-- Floating music toggle -->
+  <button class="music-control" id="music-toggle" aria-label="Play music"></button>
+
+  <main class="person-wrap">
+    <div class="person-card">
+
+      <!-- NAME -->
+      <h1 class="person-name">Russ</h1>
+      <p class="person-tagline">A note, just for you</p>
+
+      <!-- PORTRAIT FLIP CARD -->
+      <div class="portrait-frame" id="portrait-frame">
+        <div class="portrait-flipper">
+          <div class="portrait-front">
+            <img src="../assets/images/Russ.jpg" alt="Russ">
+          </div>
+          <div class="portrait-back" id="vinyl-back">
+            <div class="vinyl-label">
+              <img src="../assets/images/Russ_album.jpg" alt="Album art">
+            </div>
+            <div class="vinyl-hole"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="portrait-hint">tap to flip</p>
+
+      <!-- SPOTIFY-STYLE SONG CARD -->
+      <div class="song-card">
+        <div class="song-card-art">
+          <img src="../assets/images/Russ_album.jpg" alt="Album art">
+        </div>
+        <div class="song-card-info">
+          <span class="song-card-title">M.I.A.</span>
+          <span class="song-card-artist">KATSEYE</span>
+        </div>
+        <div class="song-card-bars" id="song-bars">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <!-- Open message button -->
+      <button class="reveal-btn" id="reveal-btn">
+        <span class="icon">✦</span> Open Your Message
+      </button>
+
+      <!-- THREE ALBUM COVER BUTTONS -->
+      <div class="album-buttons">
+        <!-- Original Song -->
+        <button class="album-button active" data-song="original" title="Your chosen song">
+          <img src="../assets/images/Russ_album.jpg" alt="Your song">
+        </button>
+        
+        <!-- I'll Be There -->
+        <button class="album-button" data-song="illbethere" title="I'll Be There - Jackson 5">
+          <img src="../assets/images/IllBeThere_album.jpg" alt="I'll Be There">
+        </button>
+        
+        <!-- Lean on Me -->
+        <button class="album-button" data-song="leanonme" title="Lean on Me - Bill Withers">
+          <img src="../assets/images/LeanOnMe_album.jpg" alt="Lean on Me">
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- MESSAGE CARD MODAL -->
+  <div class="modal-overlay" id="message-modal">
+    <article class="message-card">
+
+      <button class="card-close" id="card-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <header class="card-header">
+        <div class="card-eyebrow">A Letter</div>
+        <h2 class="card-title">For Russ</h2>
+      </header>
+
+      <div class="card-divider"></div>
+
+      <!-- MESSAGE BODY -->
+      <div class="card-body">Dear Russ,
+
+I honestly did not expect that this experience would become something so memorable because of the people I met like you along the way. What started as simply completing our OJT hours slowly turned into shared laughs, random conversations, stressful moments, inside jokes, and memories that I know I will look back in the future.
+
+Thank you for making the environment lighter and more enjoyable every single day. There were moments when everything felt tiring or overwhelming, but having people to talk to, laugh with, and spend time around made everything feel easier. I genuinely appreciate all them little moments that we shared, even if they were simple or even ordinary, because those were moments that made my OJT experience very special to me.
+
+I want to dedicate a song for each one of you because for me music has a way of expressing one’s thoughts and feelings that words sometimes cannot fully explain. Every song that I chose symbolizes a memory, a personality, an energy, or a moment that immediately reminded me of you. 
+
+“M.I.A” by KATSEYE immediately reminded me of you because of the sass and confidence you carry in yourself and the way you always manage to pull off every outfit effortlessly. There is a very bold and stylish energy in the song that instantly made me associate it with you. It kinda gives I want to go on a ramp and show myself, my style. The way you present yourself always stands out in a good way, and this song perfectly captures that kind of confident aura.
+
+And Just like the song “I’ll be there” by the Jackson 5 says, “Just call my name, and I’ll be there” I want you to know that even as we all move forward, I will always be someone you can reach out to whenever you need help, company or even just someone to listen. And also just like the song “Lean on Me” by Bill Withers reminds us, “Lean on me, when you’re not strong, and I’ll be your friend”. I genuinely hope you remember that you don’t have to carry everything alone in life. We all go through our own struggles, and it’s okay to lean on people who care about you.
+
+As we all continue moving forward with our own paths, Here is something that I would like for you to remember as each day goes on. Success does not always come immediately, and that is okay. Our successes may not suddenly enter our lives overnight, but one day they will come at the right time. Life is short, so please do not forget to enjoy it while chasing each of our dreams. Celebrate the small moments, appreciate the people around you, and allow yourself to grow at your own pace. Life is not a race, and each of us has our own timeline that we are meant to follow.
+
+Now.. Even if our paths eventually become different after this chapter, I hope that all of you continue to succeed in whatever goals and dreams that you are chasing. I know all of you are capable of achieving great things, and I genuinely wish nothing but happiness, success, and good opportunities for each of you. 
+
+Thank you for being part of my life and being part of one of the most memorable experiences that I have had. No matter where life takes us after this, I will always appreciate the memories and friendships that came from this OJT journey.
+
+      </div>
+
+      <div class="card-signature">— Emman D.</div>
+
+    </article>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You — A Collection</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =========================================
+       LOGIN GATE
+       NOTE: This is a client-side gate only.
+       Anyone who views the page source can find the password.
+       Use it as a friendly lock, not a security measure.
+       CHANGE THE PASSWORD BELOW (search for "CHANGE_ME_PASSWORD")
+       ========================================= -->
+  <div class="login-overlay" id="login-overlay">
+    <div class="login-box">
+      <h2>Private</h2>
+      <p>This page is for the giver only. Enter the passphrase to continue.</p>
+      <input type="password" id="password-input" placeholder="Passphrase" autocomplete="off">
+      <button id="login-btn">Enter</button>
+      <div class="login-error" id="login-error"></div>
+    </div>
+  </div>
+
+  <!-- =========================================
+       HOME CONTENT
+       ========================================= -->
+  <main class="home-wrap" id="home-content" style="display:none;">
+
+    <header class="home-header">
+      <span class="home-eyebrow">A Gift · Seventeen Notes</span>
+      <h1 class="home-title">Pick a name, <em>send a moment</em>.</h1>
+      <p class="home-subtitle">
+        Each card is a small letter — a song, a face, a few words.
+        Choose a person below to preview their page, then share the link or its QR code.
+      </p>
+    </header>
+
+    <nav class="button-grid" aria-label="People">
+      <a class="person-btn" href="pages/Akiko.html"><span>Akiko</span></a>
+      <a class="person-btn" href="pages/Adelaida.html"><span>Adelaida</span></a>
+      <a class="person-btn" href="pages/Christian.html"><span>Christian</span></a>
+      <a class="person-btn" href="pages/Deo.html"><span>Deo</span></a>
+      <a class="person-btn" href="pages/Johanna.html"><span>Johanna</span></a>
+      <a class="person-btn" href="pages/Key.html"><span>Key</span></a>
+      <a class="person-btn" href="pages/Cielo.html"><span>Cielo</span></a>
+      <a class="person-btn" href="pages/Carlo.html"><span>Carlo</span></a>
+      <a class="person-btn" href="pages/Gwy.html"><span>Gwy</span></a>
+      <a class="person-btn" href="pages/Russel.html"><span>Russel</span></a>
+      <a class="person-btn" href="pages/Russ.html"><span>Russ</span></a>
+      <a class="person-btn" href="pages/Josh.html"><span>Josh</span></a>
+      <a class="person-btn" href="pages/Sir_Miguii.html"><span>Sir Miguii</span></a>
+      <a class="person-btn" href="pages/Sir_Nheil.html"><span>Sir Nheil</span></a>
+      <a class="person-btn" href="pages/Maam_Indira.html"><span>Ma'am Indira</span></a>
+      <a class="person-btn" href="pages/Maam_Angelica.html"><span>Ma'am Angelica</span></a>
+      <a class="person-btn" href="pages/Doc_Bryan.html"><span>Doc Bryan</span></a>
+    </nav>
+
+    <footer class="home-footer">— made with care —</footer>
+
+  </main>
+
+  <script>
+    // =========================================
+    //  CHANGE_ME_PASSWORD
+    //  Set your own passphrase below.
+    //  Reminder: this is a friendly lock, not real security.
+    // =========================================
+    const PASSWORD = "myprivatekey";
+
+    const overlay   = document.getElementById('login-overlay');
+    const content   = document.getElementById('home-content');
+    const input     = document.getElementById('password-input');
+    const loginBtn  = document.getElementById('login-btn');
+    const errorBox  = document.getElementById('login-error');
+
+    function unlock() {
+      overlay.style.display = 'none';
+      content.style.display = 'block';
+      try { sessionStorage.setItem('gift_unlocked', '1'); } catch (e) {}
+    }
+
+    function tryLogin() {
+      if (input.value === PASSWORD) {
+        unlock();
+      } else {
+        errorBox.textContent = 'Incorrect passphrase. Try again.';
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    // Stay unlocked within the same browser session
+    try {
+      if (sessionStorage.getItem('gift_unlocked') === '1') unlock();
+    } catch (e) {}
+
+    loginBtn.addEventListener('click', tryLogin);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') tryLogin();
+    });
+
+    // Auto-focus the input
+    setTimeout(() => input.focus(), 100);
+  </script>
+
+</body>
+</html>

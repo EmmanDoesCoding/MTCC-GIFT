@@ -1,0 +1,1059 @@
+/* ============================================
+   SHARED STYLES — Gift Website
+   Aurora / Midnight Blue Aesthetic
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Outfit:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+  --bg-deep: #04060f;
+  --bg-mid: #0a1230;
+  --bg-soft: #131e4a;
+  --blue-glow: #4a8cff;
+  --blue-bright: #7eb1ff;
+  --blue-pale: #c8dcff;
+  --blue-ice: #e8f1ff;
+  --accent-cyan: #5eead4;
+  --text-primary: #f0f5ff;
+  --text-muted: #8ea3cc;
+  --card-bg: rgba(15, 25, 60, 0.55);
+  --card-border: rgba(126, 177, 255, 0.18);
+  --shadow-glow: 0 20px 60px -15px rgba(74, 140, 255, 0.35);
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg-deep);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Aurora animated background — used on all pages */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(74, 140, 255, 0.25), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 100%, rgba(94, 234, 212, 0.12), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(126, 177, 255, 0.08), transparent 70%),
+    linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 50%, var(--bg-deep) 100%);
+  z-index: -2;
+  animation: aurora-drift 25s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 25% 30%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 70% 60%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 40% 80%, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 85% 20%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 10% 65%, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 60% 10%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 90% 90%, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 200%;
+  z-index: -1;
+  opacity: 0.5;
+  pointer-events: none;
+  animation: twinkle 8s ease-in-out infinite;
+}
+
+@keyframes aurora-drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-2%, 1%) scale(1.05); }
+  100% { transform: translate(1%, -1%) scale(1); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+/* =============================================
+   LOGIN GATE (Home page only)
+   ============================================= */
+
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4, 6, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  padding: 1.5rem;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 420px;
+  padding: 2.5rem 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  box-shadow: var(--shadow-glow);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  text-align: center;
+  animation: fade-rise 0.7s cubic-bezier(.2,.8,.2,1);
+}
+
+.login-box h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--blue-ice), var(--blue-bright));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.login-box p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.8rem;
+  font-weight: 300;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 0.95rem 1.1rem;
+  background: rgba(4, 6, 15, 0.6);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.login-box input:focus {
+  border-color: var(--blue-glow);
+  box-shadow: 0 0 0 3px rgba(74, 140, 255, 0.15);
+}
+
+.login-box button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.95rem 1.1rem;
+  background: linear-gradient(135deg, var(--blue-glow), var(--blue-bright));
+  border: none;
+  border-radius: 12px;
+  color: #04060f;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.login-box button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px rgba(74, 140, 255, 0.6);
+}
+
+.login-error {
+  color: #ff8a8a;
+  font-size: 0.85rem;
+  margin-top: 0.8rem;
+  min-height: 1.2em;
+}
+
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================================
+   HOME PAGE
+   ============================================= */
+
+.home-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  animation: fade-rise 0.9s cubic-bezier(.2,.8,.2,1);
+}
+
+.home-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+  margin-bottom: 1rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--card-border);
+  border-radius: 100px;
+  background: var(--card-bg);
+}
+
+.home-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.home-title em {
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(135deg, var(--blue-bright), var(--accent-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.home-subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  font-weight: 300;
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.person-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 1.5rem 1rem;
+  min-height: 110px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(.2,.8,.2,1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  animation: fade-rise 0.6s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+/* staggered reveal */
+.person-btn:nth-child(1)  { animation-delay: 0.05s; }
+.person-btn:nth-child(2)  { animation-delay: 0.10s; }
+.person-btn:nth-child(3)  { animation-delay: 0.15s; }
+.person-btn:nth-child(4)  { animation-delay: 0.20s; }
+.person-btn:nth-child(5)  { animation-delay: 0.25s; }
+.person-btn:nth-child(6)  { animation-delay: 0.30s; }
+.person-btn:nth-child(7)  { animation-delay: 0.35s; }
+.person-btn:nth-child(8)  { animation-delay: 0.40s; }
+.person-btn:nth-child(9)  { animation-delay: 0.45s; }
+.person-btn:nth-child(10) { animation-delay: 0.50s; }
+.person-btn:nth-child(11) { animation-delay: 0.55s; }
+.person-btn:nth-child(12) { animation-delay: 0.60s; }
+.person-btn:nth-child(13) { animation-delay: 0.65s; }
+.person-btn:nth-child(14) { animation-delay: 0.70s; }
+.person-btn:nth-child(15) { animation-delay: 0.75s; }
+.person-btn:nth-child(16) { animation-delay: 0.80s; }
+.person-btn:nth-child(17) { animation-delay: 0.85s; }
+
+.person-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(74, 140, 255, 0.18), rgba(94, 234, 212, 0.08));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.person-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(126, 177, 255, 0.35), transparent 30%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: rotate-glow 4s linear infinite;
+}
+
+.person-btn:hover {
+  transform: translateY(-4px);
+  border-color: rgba(126, 177, 255, 0.5);
+  box-shadow: 0 15px 40px -15px rgba(74, 140, 255, 0.5);
+}
+
+.person-btn:hover::before { opacity: 1; }
+.person-btn:hover::after  { opacity: 0.6; }
+
+.person-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes rotate-glow {
+  to { transform: rotate(360deg); }
+}
+
+.home-footer {
+  text-align: center;
+  margin-top: 4rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* =============================================
+   PERSON PAGE
+   ============================================= */
+
+.person-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem 6rem;
+}
+
+.person-card {
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+  animation: fade-rise 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.person-name {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(2.4rem, 8vw, 3.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  background: linear-gradient(135deg, var(--blue-ice), var(--blue-bright) 70%, var(--accent-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.person-tagline {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.portrait-frame {
+  position: relative;
+  width: min(320px, 75vw);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 2.5rem;
+  border-radius: 50%;
+  padding: 6px;
+  background: conic-gradient(from 0deg, var(--blue-glow), var(--accent-cyan), var(--blue-bright), var(--blue-glow));
+  animation: rotate-glow 12s linear infinite;
+  box-shadow: 0 0 60px -10px rgba(74, 140, 255, 0.55);
+}
+
+.portrait-frame::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74, 140, 255, 0.25), transparent 70%);
+  z-index: -1;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* =============================================
+   PORTRAIT FLIP CARD
+   ============================================= */
+
+.portrait-hint {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 1.9rem;
+  margin-bottom: 1rem;
+  opacity: 0.65;
+  transition: opacity 0.3s;
+  display: block;
+}
+
+/* =============================================
+   ALBUM COVER BUTTONS (Song Switcher)
+   ============================================= */
+
+.album-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.album-button {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  background: var(--bg-soft);
+  flex-shrink: 0;
+}
+
+.album-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.album-button:hover {
+  transform: scale(1.05);
+  border-color: var(--blue-bright);
+  box-shadow: 0 8px 20px -8px rgba(74, 140, 255, 0.6);
+}
+
+.album-button.active {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 20px rgba(94, 234, 212, 0.5);
+}
+
+
+
+.song-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto 1.25rem;
+  padding: 0.75rem 1rem;
+  background: rgba(15, 25, 60, 0.6);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px -8px rgba(0,0,0,0.4);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Glows subtly when music is playing */
+.song-card.playing {
+  border-color: rgba(74, 140, 255, 0.4);
+  box-shadow: 0 8px 32px -8px rgba(74, 140, 255, 0.25);
+}
+
+/* Album art thumbnail */
+.song-card-art {
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--bg-soft);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.song-card-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Song title + artist text */
+.song-card-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+  text-align: left;
+}
+
+.song-card-title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.song-card-title:hover {
+  color: var(--blue-bright);
+}
+
+.song-card-artist {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Animated equalizer bars — shown only when playing */
+.song-card-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 18px;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.song-card.playing .song-card-bars { opacity: 1; }
+
+.song-card-bars span {
+  display: block;
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--blue-bright), var(--accent-cyan));
+  animation: eq-bar 1.2s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+.song-card-bars span:nth-child(1) { height: 60%; animation-delay: 0s;    animation-duration: 1.1s; }
+.song-card-bars span:nth-child(2) { height: 100%; animation-delay: 0.2s; animation-duration: 0.9s; }
+.song-card-bars span:nth-child(3) { height: 75%; animation-delay: 0.1s;  animation-duration: 1.3s; }
+.song-card-bars span:nth-child(4) { height: 45%; animation-delay: 0.3s;  animation-duration: 1.0s; }
+
+@keyframes eq-bar {
+  0%, 100% { transform: scaleY(0.3); }
+  50%       { transform: scaleY(1);   }
+}
+
+
+
+/* Outer wrapper — sets the 3D perspective */
+.portrait-frame {
+  position: relative;
+  width: min(300px, 72vw);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 1rem;
+  perspective: 1000px;
+  cursor: pointer;
+  /* Remove old conic-gradient / rotate-glow from wrapper */
+  background: none;
+  padding: 0;
+  animation: none;
+  box-shadow: none;
+}
+
+/* Glowing ring sits behind the flip card */
+.portrait-frame::after {
+  content: '';
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--blue-glow), var(--accent-cyan), var(--blue-bright), var(--blue-glow));
+  z-index: -1;
+  opacity: 0.7;
+  animation: rotate-glow 12s linear infinite;
+  mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black calc(100% - 5px));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), black calc(100% - 5px));
+  filter: blur(1px);
+}
+
+/* Pulse halo */
+.portrait-frame::before {
+  content: '';
+  position: absolute;
+  inset: -26px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74, 140, 255, 0.22), transparent 70%);
+  z-index: -2;
+  animation: pulse-glow 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* The card that flips */
+.portrait-flipper {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(.4, 0, .2, 1);
+}
+
+.portrait-frame.flipped .portrait-flipper {
+  transform: rotateY(180deg);
+}
+
+/* Both faces share these */
+.portrait-front,
+.portrait-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* FRONT — person photo */
+.portrait-front {
+  background: var(--bg-soft);
+}
+
+.portrait-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* BACK — vinyl record */
+.portrait-back {
+  transform: rotateY(180deg);
+  background: #0d0d0d;
+
+  /* Vinyl grooves: fine concentric rings using repeating radial gradient */
+  background-image:
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      transparent 0px,
+      transparent 3px,
+      rgba(255, 255, 255, 0.025) 3px,
+      rgba(255, 255, 255, 0.025) 3.5px,
+      transparent 3.5px,
+      transparent 7px
+    );
+
+  /* Base record color underneath */
+  background-color: #111;
+}
+
+/* Extra shine highlight on the vinyl */
+.portrait-back::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse 60% 40% at 35% 30%, rgba(255,255,255,0.07), transparent 60%),
+    radial-gradient(circle at 50% 50%, transparent 33%, rgba(0,0,0,0.5) 34%, transparent 35%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Album art label — center circle */
+.vinyl-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 3;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.12),
+    0 4px 20px rgba(0,0,0,0.6);
+}
+
+.vinyl-label img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Center spindle hole (sits on top of album art) */
+.vinyl-hole {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: #0d0d0d;
+  z-index: 4;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
+}
+
+/* Spin animation — controlled by JS class */
+.portrait-back {
+  animation-name: vinyl-spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 2.2s;
+  animation-play-state: paused;
+}
+
+/* When music is playing AND card is flipped, play the animation */
+.portrait-frame.flipped .portrait-back.spinning {
+  animation-play-state: running;
+}
+
+@keyframes vinyl-spin {
+  to { transform: rotateY(180deg) rotate(360deg); }
+}
+
+/* Pause — keep transform, no motion */
+.portrait-frame.flipped .portrait-back:not(.spinning) {
+  animation-play-state: paused;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.05); }
+}
+
+/* Reveal button */
+.reveal-btn {
+  position: relative;
+  padding: 1rem 2.2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 100px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.reveal-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--blue-glow), var(--accent-cyan));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.reveal-btn:hover {
+  transform: translateY(-2px);
+  color: var(--bg-deep);
+  border-color: transparent;
+  box-shadow: 0 12px 30px -10px rgba(74, 140, 255, 0.6);
+}
+
+.reveal-btn:hover::before { opacity: 1; }
+
+.reveal-btn .icon {
+  display: inline-block;
+  margin-right: 0.5rem;
+  transform: translateY(2px);
+}
+
+/* Music control — floating */
+.music-control {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--blue-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+  z-index: 50;
+}
+
+.music-control:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px -8px rgba(74, 140, 255, 0.5);
+}
+
+.music-control svg { width: 22px; height: 22px; }
+
+.music-control.playing {
+  background: linear-gradient(135deg, var(--blue-glow), var(--accent-cyan));
+  color: var(--bg-deep);
+  border-color: transparent;
+}
+
+.music-control.playing::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(126, 177, 255, 0.4);
+  animation: ping 2s ease-out infinite;
+}
+
+@keyframes ping {
+  0%   { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* =============================================
+   MESSAGE CARD MODAL
+   ============================================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 6, 15, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.message-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 560px;
+  max-height: 85vh;
+  background: linear-gradient(160deg, rgba(19, 30, 74, 0.85), rgba(10, 18, 48, 0.95));
+  border: 1px solid rgba(126, 177, 255, 0.25);
+  border-radius: 28px;
+  padding: 2.5rem 2rem 2rem;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7), 0 0 80px -20px rgba(74, 140, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(40px) scale(0.95);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(.2,.8,.2,1), opacity 0.4s ease;
+  overflow: hidden;
+}
+
+.modal-overlay.active .message-card {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.message-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--blue-glow), var(--accent-cyan), var(--blue-bright));
+}
+
+.message-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(126, 177, 255, 0.15), transparent 60%);
+  pointer-events: none;
+}
+
+.card-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(4, 6, 15, 0.4);
+  border: 1px solid var(--card-border);
+  color: var(--blue-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.2s ease;
+}
+
+.card-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
+}
+
+.card-eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--blue-ice);
+  letter-spacing: -0.01em;
+}
+
+.card-divider {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue-bright), transparent);
+  margin: 1rem auto 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Scrollable message body — fixed card size */
+.card-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 0.5rem 0.5rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--blue-pale);
+  font-weight: 300;
+  white-space: pre-wrap;
+  text-align: justify;
+
+  /* Custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue-glow) transparent;
+}
+
+.card-body::-webkit-scrollbar { width: 6px; }
+.card-body::-webkit-scrollbar-track { background: transparent; }
+.card-body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--blue-glow), var(--accent-cyan));
+  border-radius: 100px;
+}
+
+
+.card-signature {
+  text-align: right;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(126, 177, 255, 0.15);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--blue-bright);
+  flex-shrink: 0;
+}
+
+/* =============================================
+   MOBILE
+   ============================================= */
+
+@media (max-width: 600px) {
+  .home-wrap { padding: 3rem 1rem 4rem; }
+  .button-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .person-btn {
+    min-height: 90px;
+    font-size: 1.1rem;
+    padding: 1.2rem 0.8rem;
+    border-radius: 14px;
+  }
+  .message-card {
+    padding: 2rem 1.4rem 1.4rem;
+    height: 520px;
+    border-radius: 22px;
+  }
+  .card-title { font-size: 1.35rem; }
+  .card-body { font-size: 0.95rem; }
+  .music-control {
+    top: 1rem;
+    right: 1rem;
+    width: 46px;
+    height: 46px;
+  }
+  .music-control svg { width: 18px; height: 18px; }
+}
+
+@media (max-width: 360px) {
+  .button-grid { grid-template-columns: 1fr; }
+}

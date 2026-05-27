@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Carlo</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <!-- BACKGROUND MUSIC -->
+  <audio id="bg-music" src="../assets/music/Carlo.mp3" preload="auto"></audio>
+
+  <!-- Floating music toggle -->
+  <button class="music-control" id="music-toggle" aria-label="Play music"></button>
+
+  <main class="person-wrap">
+    <div class="person-card">
+
+      <!-- NAME -->
+      <h1 class="person-name">Carlo</h1>
+      <p class="person-tagline">A note, just for you</p>
+
+      <!-- PORTRAIT FLIP CARD -->
+      <div class="portrait-frame" id="portrait-frame">
+        <div class="portrait-flipper">
+          <div class="portrait-front">
+            <img src="../assets/images/Carlo.jpg" alt="Carlo">
+          </div>
+          <div class="portrait-back" id="vinyl-back">
+            <div class="vinyl-label">
+              <img src="../assets/images/Carlo_album.jpg" alt="Album art">
+            </div>
+            <div class="vinyl-hole"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="portrait-hint">tap to flip</p>
+
+      <!-- SPOTIFY-STYLE SONG CARD -->
+      <div class="song-card">
+        <div class="song-card-art">
+          <img src="../assets/images/Carlo_album.jpg" alt="Album art">
+        </div>
+        <div class="song-card-info">
+          <span class="song-card-title">Song Title</span>
+          <span class="song-card-artist">Artist Name</span>
+        </div>
+        <div class="song-card-bars" id="song-bars">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <!-- Open message button -->
+      <button class="reveal-btn" id="reveal-btn">
+        <span class="icon">✦</span> Open Your Message
+      </button>
+
+      <!-- THREE ALBUM COVER BUTTONS -->
+      <div class="album-buttons">
+        <!-- Original Song -->
+        <button class="album-button active" data-song="original" title="Your chosen song">
+          <img src="../assets/images/Carlo_album.jpg" alt="Your song">
+        </button>
+        
+        <!-- I'll Be There -->
+        <button class="album-button" data-song="illbethere" title="I'll Be There - Jackson 5">
+          <img src="../assets/images/IllBeThere_album.jpg" alt="I'll Be There">
+        </button>
+        
+        <!-- Lean on Me -->
+        <button class="album-button" data-song="leanonme" title="Lean on Me - Bill Withers">
+          <img src="../assets/images/LeanOnMe_album.jpg" alt="Lean on Me">
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- MESSAGE CARD MODAL -->
+  <div class="modal-overlay" id="message-modal">
+    <article class="message-card">
+
+      <button class="card-close" id="card-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <header class="card-header">
+        <div class="card-eyebrow">A Letter</div>
+        <h2 class="card-title">For Carlo</h2>
+      </header>
+
+      <div class="card-divider"></div>
+
+      <!-- MESSAGE BODY -->
+      <div class="card-body">Dear Carlo,
+
+And just like the song "I'll be there" by the Jackson 5 says, "Just call my name, and I'll be there" I want you to know that even as we all move forward, I will always be someone you can reach out to whenever you need help, company or even just someone to listen. And also just like the song "Lean on Me" by Bill Withers reminds us, "Lean on me, when you're not strong, and I'll be your friend". I genuinely hope you remember that you don't have to carry everything alone in life. We all go through our own struggles, and it's okay to lean on people who care about you.
+      </div>
+
+      <div class="card-signature">— Emman D.</div>
+
+    </article>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

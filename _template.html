@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For __DISPLAY_NAME__</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <!-- BACKGROUND MUSIC — change src to this person's mp3 -->
+  <audio id="bg-music" src="../assets/music/__FILE_NAME__.mp3" preload="auto"></audio>
+
+  <!-- Floating music toggle -->
+  <button class="music-control" id="music-toggle" aria-label="Play music"></button>
+
+  <main class="person-wrap">
+    <div class="person-card">
+
+      <!-- NAME -->
+      <h1 class="person-name">__DISPLAY_NAME__</h1>
+      <p class="person-tagline">A note, just for you</p>
+
+      <!-- PORTRAIT FLIP CARD -->
+      <div class="portrait-frame" id="portrait-frame">
+        <div class="portrait-flipper">
+          <div class="portrait-front">
+            <img src="../assets/images/__FILE_NAME__.jpg" alt="__DISPLAY_NAME__">
+          </div>
+          <div class="portrait-back" id="vinyl-back">
+            <div class="vinyl-label">
+              <img src="../assets/images/__FILE_NAME___album.jpg" alt="Album art">
+            </div>
+            <div class="vinyl-hole"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="portrait-hint">tap to flip</p>
+
+      <!-- SPOTIFY-STYLE SONG CARD -->
+      <div class="song-card">
+        <div class="song-card-art">
+          <img src="../assets/images/__FILE_NAME___album.jpg" alt="Album art">
+        </div>
+        <div class="song-card-info">
+          <span class="song-card-title">Song Title</span>
+          <span class="song-card-artist">Artist Name</span>
+        </div>
+        <div class="song-card-bars" id="song-bars">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <!-- Open message button -->
+      <button class="reveal-btn" id="reveal-btn">
+        <span class="icon">✦</span> Open Your Message
+      </button>
+
+    </div>
+  </main>
+
+  <!-- MESSAGE CARD MODAL -->
+  <div class="modal-overlay" id="message-modal">
+    <article class="message-card">
+
+      <button class="card-close" id="card-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <header class="card-header">
+        <div class="card-eyebrow">A Letter</div>
+        <h2 class="card-title">For __DISPLAY_NAME__</h2>
+      </header>
+
+      <div class="card-divider"></div>
+
+      <!-- MESSAGE BODY -->
+      <div class="card-body">Dear __DISPLAY_NAME__,
+
+This is a placeholder message. Replace this whole block with whatever you want to say.
+
+You can write as much as you like — the card stays the same size and scrolls if it gets too long.
+
+— Write a few lines, or a whole letter. It's yours.
+      </div>
+
+      <div class="card-signature">— with warmth</div>
+
+    </article>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>
