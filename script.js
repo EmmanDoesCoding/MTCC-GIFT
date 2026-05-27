@@ -14,7 +14,6 @@
   const modal      = document.getElementById('message-modal');
   const closeBtn   = document.getElementById('card-close');
 
-  // Tap to start overlay
 // Tap to start overlay
   const tapOverlay = document.getElementById('tap-to-start');
   if (tapOverlay) {
@@ -22,12 +21,14 @@
       tapOverlay.classList.add('hidden');
       
       // Try to play audio when user taps
-      const audio = document.getElementById('bg-music');
-      if (audio) {
-        audio.play().catch(() => {
-          // If play fails, that's okay - user can tap the music button
-        });
-      }
+      setTimeout(() => {
+        const bgAudio = document.getElementById('bg-music');
+        if (bgAudio && bgAudio.paused) {
+          bgAudio.play().catch((err) => {
+            console.log('Autoplay blocked:', err);
+          });
+        }
+      }, 100);
       
       document.removeEventListener('click', hideTapOverlay);
       document.removeEventListener('touchstart', hideTapOverlay);
