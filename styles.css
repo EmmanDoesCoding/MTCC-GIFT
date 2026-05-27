@@ -1067,7 +1067,7 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 200;
+  z-index: 9999;  /* Change from 200 to 9999 */
   opacity: 1;
   transition: opacity 0.5s ease;
   pointer-events: auto;
@@ -1076,6 +1076,7 @@ body::after {
 .tap-to-start.hidden {
   opacity: 0;
   pointer-events: none;
+  display: none;  /* Add this */
 }
 
 .tap-to-start-content {
